@@ -48,6 +48,6 @@ group :development do
 	gem 'capistrano-rbenv', '~> 2.0', '>= 2.0.4'
 end	
 
+gem 'spree', '~> 3.0.8'
 gem 'spree_gateway', '~> 3.0.0'
 gem 'spree_auth_devise', '~> 3.0.0'
-gem 'spree', '~> 3.0.8'
