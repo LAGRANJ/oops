@@ -346,7 +346,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  spree
+  spree (~> 3.0.8)
   spree_auth_devise (~> 3.0.0)
   spree_gateway (~> 3.0.0)
   spring
