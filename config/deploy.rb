@@ -41,16 +41,25 @@ namespace :deploy do
 			execute :touch, release_path.join('tmp/restart.txt')
 		end
 	end
+	desc 'Runs bundle exec rails g spree_i18n:install'
+	task :spree_i18n_install do
+		on roles(:app), in: :sequence, wait: 5 do
+					#execute :touch, "touch /home/deploy/restart.txt"
+			within release_path do
+				#	execute :rails, 'g spree_i18n:install'
+			end
+		end
+	end
 	after :publishing, 'deploy:restart'
 	after :finishing, 'deploy:cleanup'
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
+  after :finishing, 'deploy:spree_i18n_install'
+	after :restart, :clear_cache do
+		on roles(:web), in: :groups, limit: 3, wait: 10 do
+			# Here we can do anything such as:
+			# within release_path do
+			#   execute :rake, 'cache:clear'
+			# end
+		end
+	end
 
 end
