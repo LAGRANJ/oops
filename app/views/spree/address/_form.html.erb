@@ -13,5 +13,4 @@
     <%= form.label :phone, Spree.t(:phone) %><% if address.require_phone? %><span class="required">*</span><br /><% end %>
     <%= form.phone_field :phone, :class => "form-control #{'required' if address.require_phone?}" %>
   </p>
-  <% end %>
 </div>
